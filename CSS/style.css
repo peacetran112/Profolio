@@ -18,6 +18,13 @@
     --fs-h2:2.25rem;
     --fs-h3:1.25rem;
     --fs-body:1rem;
+
+    --bs:0.25em 0.25em 0.75em rgba(0,0,0,.25),
+         0.12em 0.125em 0.25em rgba(0,0,0,.1);
+}
+
+.intro__img{
+    box-shadow:var(--bs);
 }
 
 @media (min-width:800px){
@@ -35,7 +42,7 @@ body{
     background:var(--clr-light);
     color:var(--clr-dark);
     margin:0;
-    font-family: var(--f-primary);
+    font-family: var(--ff-primary);
     font-size: var(--fs-body);
     line-height: 1.6;
 }
@@ -70,7 +77,10 @@ h3{
     }
 .section__title--intro{
     font-weight: var(--fw-reg);
+    
+    ;
 }
+
 .section__title--intro strong{
     display:block;
 }
@@ -78,11 +88,13 @@ h3{
     margin:0;
     font-size:var(--fs-h3);
 }
-.section__subtitle--intro,.section__subtlte--about{
+.section__subtitle--intro,.section__subtitle--about{
     background:var(--clr-accent);
     font-family:var(--ff-secondary);
     margin-bottom:1em;
     display:inline-block;
+    padding:0 1em;
+    
 }
 nav{display:none};
 
@@ -91,4 +103,47 @@ nav{display:none};
     position:relative;
 }
 
-@media()
+@media (min-width:600px){
+    .intro{
+        display:grid;
+        width:min-content;
+        margin:0 auto;
+        grid-column-gap: 1em;
+        grid-template-areas:
+            "img title"
+            "img subtitle";
+        grid-template-columns: min-content max-content;
+    }
+    .intro__img{
+        grid-area: img;
+        min-width: 250px;
+        position:relative;
+        z-index: 2;
+    }
+    .section__subtitle--intro{
+        align-self:start;
+        grid-column:-1 /1;
+        grid-row:2;
+        text-align:right;
+        position:relative;
+        left:-2em;
+        width:calc(100% + 2em);
+    }
+}
+
+/* my services section */
+.my-services{
+    background-color: var(--clr-dark);
+    background-image: url(../img/christopher-gower-m_HRfLhgABo-unsplash.png);
+    background-size:cover;
+    color:var(--clr-light);
+    text-align: center;
+}
+.section__title--services::after{
+    content:'';
+    width:100px;
+    display:block;
+    height:1px;
+    background-color:var(--clr-accent);
+    margin:0.5em auto 1em;
+}
